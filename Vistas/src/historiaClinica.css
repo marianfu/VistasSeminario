@@ -21,6 +21,7 @@
 #botonPrevisualizar{
 	-fx-background-color: #1abc9c;
 }
+
 #botonPrevisualizar:hover{
 	-fx-background-color: #16a085;
 }
