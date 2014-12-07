@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.*?>
 <?scenebuilder-stylesheet vista.css?>
 
-<VBox fx:id="ventana" prefHeight="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ControladorPrincipal">
+<VBox fx:id="ventana" prefHeight="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="VistaPrincipalControlador">
 	<children>
 		<HBox fx:id="headerLabel" alignment="BOTTOM_LEFT" prefHeight="80.0" prefWidth="916.0" style="-fx-background-color: white;">
 			<children>

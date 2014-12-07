@@ -15,21 +15,12 @@ import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Control;
 import javafx.scene.control.Label;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Priority;
 import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -157,6 +148,7 @@ public class VistaInicioControlador implements Initializable {
 		return sb.toString();
 	}
 
+	@SuppressWarnings("unused")
 	private void setTransicionDesvanecer(Node node, boolean valor) {
 		FadeTransition ft = new FadeTransition(Duration.millis(250), node);
 		ft.setFromValue(1.0);

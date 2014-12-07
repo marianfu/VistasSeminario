@@ -5,15 +5,12 @@ import java.io.IOException;
 import javafx.fxml.FXMLLoader;
 
 /**
- * Utility class for controlling navigation between vistas.
- *
- * All methods on the navigator are static to facilitate
- * simple access from anywhere in the application.
+ *	Clase para controlador la navegación entre las vistas.
  */
 public class VistaNavegador {
 
     /**
-     * Convenience constants for fxml layouts managed by the navigator.
+     * Los fxml layouts manejados por el navegador.
      */
     public static final String MAIN    = "FXML/main.fxml";
     public static final String VISTA_1 = "FXML/vistaInicio.fxml";
@@ -27,15 +24,10 @@ public class VistaNavegador {
     public static final String VISTA_9 = "FXML/vistaAnalisisPredictivo.fxml";
 
     
-    /** The main application layout controller. */
-    private static ControladorPrincipal mainController;
+    private static VistaPrincipalControlador mainController;
 
-    /**
-     * Stores the main controller for later use in navigation tasks.
-     *
-     * @param mainController the main application layout controller.
-     */
-    public static void setMainController(ControladorPrincipal mainController) {
+    
+    public static void setMainController(VistaPrincipalControlador mainController) {
         VistaNavegador.mainController = mainController;
     }
 

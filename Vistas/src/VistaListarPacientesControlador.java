@@ -3,7 +3,6 @@ import java.util.ResourceBundle;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -15,135 +14,144 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 public class VistaListarPacientesControlador implements Initializable {
 
-	private ObservableList<Persona> personas = FXCollections.observableArrayList();
-	@FXML 
+	private ObservableList<Paciente> pacientes = FXCollections
+			.observableArrayList();
+	@FXML
 	private TextField textFiltrarTabla;
 	@FXML
 	private Button botonBuscar;
 	@FXML
-	private TableView<Persona> tablaListarPacientes;
+	private TableView<Paciente> tablaListarPacientes;
 	@FXML
-	private TableColumn<Persona, String> columnaNombre;
-	@FXML 
-	private TableColumn<Persona, String> columnaApellido;	
+	private TableColumn<Paciente, String> columnaNombre;
 	@FXML
-	private TableColumn<Persona, String> columnaDni;
-	@FXML 
-	private TableColumn<Persona, String> columnaTelefono;	
+	private TableColumn<Paciente, String> columnaApellido;
 	@FXML
-	private TableColumn<Persona, String> columnaEmail;
-	@FXML 
-	private TableColumn<Persona, String> columnaNacimiento;	
+	private TableColumn<Paciente, String> columnaDni;
 	@FXML
-	private TableColumn<Persona, String> columnaObraSocial;
-	@FXML 
-	private TableColumn<Persona, String> columnaPlan;	
-	@FXML 
-	private TableColumn<Persona, String> columnaActivo;	
-	
-	public void filtrarTabla(ActionEvent event){
-		
-		ObservableList<Persona> tablaFiltro = FXCollections.observableArrayList();
-		
-		for(Persona p : personas){
-			
-			if(this.evaluar(p, textFiltrarTabla.getText())== true){
-				
-				tablaFiltro.add(p);
-			}
-		}
-		
-		tablaListarPacientes.getItems().setAll(tablaFiltro);
-	}
-	
-	public void verTodos(ActionEvent event) {
-
-		  // setea los pacientes en la tabla
-		  
-		tablaListarPacientes.getItems().setAll(this.getPersonas());
-				
-	}
+	private TableColumn<Paciente, String> columnaTelefono;
+	@FXML
+	private TableColumn<Paciente, String> columnaEmail;
+	@FXML
+	private TableColumn<Paciente, String> columnaNacimiento;
+	@FXML
+	private TableColumn<Paciente, String> columnaObraSocial;
+	@FXML
+	private TableColumn<Paciente, String> columnaPlan;
+	@FXML
+	private TableColumn<Paciente, String> columnaActivo;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
 
-		  columnaNombre.setCellValueFactory(
-	                new PropertyValueFactory<Persona, String>("nombre"));
-		  columnaApellido.setCellValueFactory(
-	                new PropertyValueFactory<Persona, String>("apellido"));
-		  columnaDni.setCellValueFactory(
-	                new PropertyValueFactory<Persona, String>("dni"));
-		  columnaTelefono.setCellValueFactory(
-	                new PropertyValueFactory<Persona, String>("telefono"));
-		  columnaEmail.setCellValueFactory(
-	                new PropertyValueFactory<Persona, String>("email"));
-		  columnaNacimiento.setCellValueFactory(
-	                new PropertyValueFactory<Persona, String>("nacimiento"));
-		  columnaObraSocial.setCellValueFactory(
-	                new PropertyValueFactory<Persona, String>("obraSocial"));
-		  columnaPlan.setCellValueFactory(
-	                new PropertyValueFactory<Persona, String>("plan"));
-		  columnaActivo.setCellValueFactory(
-	                new PropertyValueFactory<Persona, String>("activo"));
-		  
-		 
+		columnaNombre
+				.setCellValueFactory(new PropertyValueFactory<Paciente, String>(
+						"nombre"));
+		columnaApellido
+				.setCellValueFactory(new PropertyValueFactory<Paciente, String>(
+						"apellido"));
+		columnaDni
+				.setCellValueFactory(new PropertyValueFactory<Paciente, String>(
+						"dni"));
+		columnaTelefono
+				.setCellValueFactory(new PropertyValueFactory<Paciente, String>(
+						"telefono"));
+		columnaEmail
+				.setCellValueFactory(new PropertyValueFactory<Paciente, String>(
+						"email"));
+		columnaNacimiento
+				.setCellValueFactory(new PropertyValueFactory<Paciente, String>(
+						"nacimiento"));
+		columnaObraSocial
+				.setCellValueFactory(new PropertyValueFactory<Paciente, String>(
+						"obraSocial"));
+		columnaPlan
+				.setCellValueFactory(new PropertyValueFactory<Paciente, String>(
+						"plan"));
+		columnaActivo
+				.setCellValueFactory(new PropertyValueFactory<Paciente, String>(
+						"activo"));
+
 	}
-	
-	private boolean evaluar(Persona p, String s){
-		
-		if(p.getNombre().equals(s))
+
+	private boolean evaluar(Paciente p, String s) {
+
+		if (p.getNombre().equals(s))
 			return true;
-		else if(p.getApellido().equals(s))
+		else if (p.getApellido().equals(s))
 			return true;
-		else if(p.getApellido().equals(s))
+		else if (p.getApellido().equals(s))
 			return true;
-		else if(p.getDni().equals(s))
+		else if (p.getDni().equals(s))
 			return true;
-		else if(p.getEmail().equals(s))
+		else if (p.getEmail().equals(s))
 			return true;
-		else if(p.getNacimiento().equals(s))
+		else if (p.getNacimiento().equals(s))
 			return true;
-		else if(p.getTelefono().equals(s))
+		else if (p.getTelefono().equals(s))
 			return true;
-		else if(p.getObraSocial().equals(s))
+		else if (p.getObraSocial().equals(s))
 			return true;
-		else if(p.getPlan().equals(s))
+		else if (p.getPlan().equals(s))
 			return true;
-		else if(p.getActivo().equals(s))
+		else if (p.getActivo().equals(s))
 			return true;
 		else
 			return false;
 	}
-	
-	private ObservableList<Persona> getPersonas(){
-		
-		// CREA Y RETORNA LA LISTA QUE CONTIENE LOS PACIENTES
-		
-		
-		
-		personas.add(new Persona("a", "a", "a", "a", "a", "a", "a", "a", "a"));
-		personas.add(new Persona("a", "a", "a", "a", "a", "a", "a", "a", "a"));
-		personas.add(new Persona("a", "a", "a", "a", "a", "a", "a", "a", "a"));
-		personas.add(new Persona("a", "a", "a", "a", "a", "a", "a", "a", "a"));
-		personas.add(new Persona("a", "a", "a", "a", "a", "a", "a", "a", "a"));
-		personas.add(new Persona("a", "a", "a", "a", "a", "a", "a", "a", "a"));
-		personas.add(new Persona("a", "a", "a", "a", "a", "a", "a", "a", "a"));
-		personas.add(new Persona("a", "a", "a", "a", "a", "a", "a", "a", "a"));
-		personas.add(new Persona("a", "a", "a", "a", "a", "a", "a", "a", "a"));
-		personas.add(new Persona("a", "a", "a", "a", "a", "a", "a", "a", "a"));
-		personas.add(new Persona("a", "a", "a", "a", "a", "a", "a", "a", "a"));
-		personas.add(new Persona("a", "a", "a", "a", "a", "a", "a", "a", "a"));
-		personas.add(new Persona("a", "a", "a", "a", "a", "a", "a", "a", "a"));
-		personas.add(new Persona("a", "a", "a", "a", "a", "a", "a", "a", "a"));
-		personas.add(new Persona("a", "a", "a", "a", "a", "a", "a", "a", "a"));
-		personas.add(new Persona("a", "a", "a", "a", "a", "a", "a", "a", "a"));
-		personas.add(new Persona("b", "a", "1234", "a", "a", "a", "a", "a", "a"));
 
-		return personas;
+	private ObservableList<Paciente> getPacientes() {
+
+		// CREA Y RETORNA LA LISTA QUE CONTIENE LOS PACIENTES
+
+		pacientes.add(new Paciente("a", "a", "a", "a", "a", "a", "a", "a", "a"));
+		pacientes.add(new Paciente("a", "a", "a", "a", "a", "a", "a", "a", "a"));
+		pacientes.add(new Paciente("a", "a", "a", "a", "a", "a", "a", "a", "a"));
+		pacientes.add(new Paciente("a", "a", "a", "a", "a", "a", "a", "a", "a"));
+		pacientes.add(new Paciente("a", "a", "a", "a", "a", "a", "a", "a", "a"));
+		pacientes.add(new Paciente("a", "a", "a", "a", "a", "a", "a", "a", "a"));
+		pacientes.add(new Paciente("a", "a", "a", "a", "a", "a", "a", "a", "a"));
+		pacientes.add(new Paciente("a", "a", "a", "a", "a", "a", "a", "a", "a"));
+		pacientes.add(new Paciente("a", "a", "a", "a", "a", "a", "a", "a", "a"));
+		pacientes.add(new Paciente("a", "a", "a", "a", "a", "a", "a", "a", "a"));
+		pacientes.add(new Paciente("a", "a", "a", "a", "a", "a", "a", "a", "a"));
+		pacientes.add(new Paciente("a", "a", "a", "a", "a", "a", "a", "a", "a"));
+		pacientes.add(new Paciente("a", "a", "a", "a", "a", "a", "a", "a", "a"));
+		pacientes.add(new Paciente("a", "a", "a", "a", "a", "a", "a", "a", "a"));
+		pacientes.add(new Paciente("a", "a", "a", "a", "a", "a", "a", "a", "a"));
+		pacientes.add(new Paciente("a", "a", "a", "a", "a", "a", "a", "a", "a"));
+		pacientes.add(new Paciente("b", "a", "1234", "a", "a", "a", "a", "a", "a"));
+
+		return pacientes;
 	}
-	
-	public class Persona {
+
+	/* EVENT HANDLERS */
+
+	public void filtrarTabla(ActionEvent event) {
+
+		ObservableList<Paciente> tablaFiltro = FXCollections
+				.observableArrayList();
+
+		for (Paciente p : pacientes) {
+
+			if (this.evaluar(p, textFiltrarTabla.getText()) == true) {
+
+				tablaFiltro.add(p);
+			}
+		}
+
+		tablaListarPacientes.getItems().setAll(tablaFiltro);
+	}
+
+	public void verTodos(ActionEvent event) {
+
+		// setea los pacientes en la tabla
+
+		tablaListarPacientes.getItems().setAll(this.getPacientes());
+
+	}
+
+	public class Paciente {
 
 		private String nombre;
 		private String apellido;
@@ -155,10 +163,10 @@ public class VistaListarPacientesControlador implements Initializable {
 		private String plan;
 		private String activo;
 
-		private Persona(String nombre, String apellido, String email, String telefono, String dni,
-				String nacimiento, String obraSocial, String plan, String activo) {
-			
-			
+		private Paciente(String nombre, String apellido, String email,
+				String telefono, String dni, String nacimiento,
+				String obraSocial, String plan, String activo) {
+
 			this.nombre = nombre;
 			this.apellido = apellido;
 			this.email = email;
@@ -168,7 +176,7 @@ public class VistaListarPacientesControlador implements Initializable {
 			this.obraSocial = obraSocial;
 			this.plan = plan;
 			this.activo = activo;
-			
+
 		}
 
 		public String getNombre() {
@@ -243,6 +251,5 @@ public class VistaListarPacientesControlador implements Initializable {
 			this.activo = activo;
 		}
 
-		
 	}
 }

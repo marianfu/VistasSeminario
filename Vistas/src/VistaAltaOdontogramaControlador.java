@@ -28,6 +28,8 @@ public class VistaAltaOdontogramaControlador implements Initializable{
 		boxOdontograma.setDisable(true);		
 	}
 	
+	/* EVENT HANDLERS */
+	
 	public void buscarPaciente(ActionEvent event){
 		
 		boxOdontograma.setDisable(false);

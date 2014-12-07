@@ -59,16 +59,13 @@ public class VistaAltaHistoriaClinicaControlador implements Initializable {
 		panelFichaPeriodontal.getStylesheets().setAll(
 				getClass().getResource("historiaClinica.css").toExternalForm());
 
-		
 		comboOdontologos.getItems().addAll("Odontologo 1");
 		comboOdontologos.getItems().addAll("Odontologo 2");
 		comboOdontologos.getItems().addAll("Odontologo 3");
 		comboOdontologos.getItems().addAll("Odontologo 4");
-		
-		
+
 		comboOdontologos2.getItems().addAll("Odontologo 1");
 
-		
 		columnaOdontologo
 				.setCellValueFactory(new PropertyValueFactory<ObservacionView, String>(
 						"odontologo"));
@@ -81,34 +78,20 @@ public class VistaAltaHistoriaClinicaControlador implements Initializable {
 
 	}
 
-	/*	METODOS		*/
-	
-	public void presionarBuscarPaciente(ActionEvent event) {
+	/* METODOS */
 
-		panelFichaPeriodontal.setDisable(false);
-		datosPaciente.setText(filtrarFicha.getText());
-	}
-
-	public void agregarObservacion(ActionEvent event) {
-
-		tablaObservaciones.getItems().addAll(this.generarObservacion());
-	}
-
+	@SuppressWarnings("deprecation")
 	private ObservableList<ObservacionView> generarObservacion() {
 
 		// CREA Y RETORNA LA LISTA QUE CONTIENE LAS OBSERVACIONES
-		observaciones = FXCollections
-				.observableArrayList();
+		observaciones = FXCollections.observableArrayList();
 
-		observaciones.add(new ObservacionView(comboOdontologos2.getValue(), new Date(2014, 11, 05)
-				.toString(), textObservaciones.getText()));
+		observaciones
+				.add(new ObservacionView(comboOdontologos2.getValue(),
+						new Date(2014, 11, 05).toString(), textObservaciones
+								.getText()));
 
 		return observaciones;
-	}
-
-	public void mostrarPrevisualizacion(ActionEvent event) {
-
-		this.generarPrevisualizacion(fichaPeriodontal).show();
 	}
 
 	private Stage generarPrevisualizacion(Node node) {
@@ -130,22 +113,39 @@ public class VistaAltaHistoriaClinicaControlador implements Initializable {
 
 		return ventanaPrevisualizacion;
 	}
-	
-	public void limpiarTabla(ActionEvent event){
-		
-		tablaObservaciones.getItems().clear();
-	}
-	
-	public void eliminarFila(ActionEvent event){
-		
-		
-//		tablaObservaciones.getItems().clear();
-//		tablaObservaciones.getItems().setAll(observaciones);
-		
+
+	/* EVENT HANDLERS */
+
+	public void presionarBuscarPaciente(ActionEvent event) {
+
+		panelFichaPeriodontal.setDisable(false);
+		datosPaciente.setText(filtrarFicha.getText());
 	}
 
-	/* CAMBIAR POR LA VIEW DEL NEGOCIO*/
-	
+	public void agregarObservacion(ActionEvent event) {
+
+		tablaObservaciones.getItems().addAll(this.generarObservacion());
+	}
+
+	public void mostrarPrevisualizacion(ActionEvent event) {
+
+		this.generarPrevisualizacion(fichaPeriodontal).show();
+	}
+
+	public void limpiarTabla(ActionEvent event) {
+
+		tablaObservaciones.getItems().clear();
+	}
+
+	public void eliminarFila(ActionEvent event) {
+
+		// tablaObservaciones.getItems().clear();
+		// tablaObservaciones.getItems().setAll(observaciones);
+
+	}
+
+	/* CAMBIAR POR LA VIEW DEL NEGOCIO */
+
 	public class ObservacionView {
 
 		private String odontologo;

@@ -39,7 +39,7 @@ public class Main extends Application {
 		Pane mainPane = (Pane) loader.load(getClass().getResourceAsStream(
 				VistaNavegador.MAIN));
 
-		ControladorPrincipal mainController = loader.getController();
+		VistaPrincipalControlador mainController = loader.getController();
 
 		VistaNavegador.setMainController(mainController);
 		VistaNavegador.loadVista(VistaNavegador.VISTA_1);

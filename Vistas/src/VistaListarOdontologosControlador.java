@@ -1,8 +1,6 @@
 import java.net.URL;
 import java.util.ResourceBundle;
 
-
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -21,56 +19,128 @@ public class VistaListarOdontologosControlador implements Initializable {
 	@FXML
 	private TextField textFiltrarTabla;
 	@FXML
-	private Button botonBuscar;
+	private Button botonBuscar, botonVerTodos;
 	@FXML
 	private TableView<OdontologoView> tablaListarOdontologos;
 	@FXML
-	private TableColumn<OdontologoView, String> columnaNombre;
-	@FXML
-	private TableColumn<OdontologoView, String> columnaApellido;
-	@FXML
-	private TableColumn<OdontologoView, String> columnaMatricula;
-	@FXML
-	private TableColumn<OdontologoView, String> columnaEspecialidad;
+	private TableColumn<OdontologoView, String> columnaNombre, columnaApellido,
+			columnaMatricula, columnaEspecialidad;
 
-	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 
-		columnaNombre.setCellValueFactory(
-                new PropertyValueFactory<OdontologoView, String>("nombre"));
-		columnaApellido.setCellValueFactory(
-                new PropertyValueFactory<OdontologoView, String>("apellido"));
-		columnaMatricula.setCellValueFactory(
-                new PropertyValueFactory<OdontologoView, String>("matricula"));
-		columnaEspecialidad.setCellValueFactory(
-                new PropertyValueFactory<OdontologoView, String>("especialidad"));
+		columnaMatricula
+				.setCellValueFactory(new PropertyValueFactory<OdontologoView, String>(
+						"matricula"));
+		columnaNombre
+				.setCellValueFactory(new PropertyValueFactory<OdontologoView, String>(
+						"nombre"));
+		columnaApellido
+				.setCellValueFactory(new PropertyValueFactory<OdontologoView, String>(
+						"apellido"));
+		columnaEspecialidad
+				.setCellValueFactory(new PropertyValueFactory<OdontologoView, String>(
+						"especialidad"));
 
 	}
-	
+
+	/* METODOS */
+
+	private boolean evaluar(OdontologoView o, String s) {
+
+		if (o.getNombre().equals(s))
+			return true;
+		else if (o.getApellido().equals(s))
+			return true;
+		else if (o.getMatricula().equals(s))
+			return true;
+		else if (o.getEspeciliadad().equals(s))
+			return true;
+		else
+			return false;
+	}
+
+	private ObservableList<OdontologoView> getOdontologos() {
+
+		// CREA Y RETORNA LA LISTA QUE CONTIENE LOS ODONTOLOGOS
+
+		odontologos.add(new OdontologoView("1", "A", "A", "Awww"));
+		odontologos.add(new OdontologoView("2", "B", "B", "B"));
+		odontologos.add(new OdontologoView("3", "C", "C", "C"));
+		odontologos.add(new OdontologoView("4", "D", "D", "D"));
+
+		return odontologos;
+	}
+
+	/* EVENT HANDLERS */
+
 	public void verTodos(ActionEvent event) {
 
-		  // setea los pacientes en la tabla
-		  
-		//tablaListarOdontologos.getItems().setAll(null);
-				
+		tablaListarOdontologos.getItems().setAll(this.getOdontologos());
+
 	}
 
-	private boolean evaluar(OdontologoView p, String s) {
-		return false;
+	public void filtrarTabla(ActionEvent event) {
 
-		// if(p.getNombre().equals(s))
-		// return true;
-		// else if(p.getApellido().equals(s))
-		// return true;
-		// else if(p.getMatriicula().equals(s))
-		// return true;
-		// else if(p.getEspecialidad().equals(s))
-		// return true;
-		// else
-		// return false;
+		ObservableList<OdontologoView> tablaFiltro = FXCollections
+				.observableArrayList();
+
+		for (OdontologoView o : odontologos) {
+
+			if (this.evaluar(o, textFiltrarTabla.getText()) == true) {
+
+				tablaFiltro.add(o);
+			}
+		}
+
+		tablaListarOdontologos.getItems().setAll(tablaFiltro);
 	}
 
 	public class OdontologoView {
+
+		private String matricula;
+		private String nombre;
+		private String apellido;
+		private String especiliadad;
+
+		public OdontologoView(String matricula, String nombre, String apellido, String especialidad) {
+
+			this.matricula = matricula;
+			this.nombre = nombre;
+			this.apellido = apellido;
+			this.especiliadad = especialidad;
+		}
+
+		public String getMatricula() {
+			return matricula;
+		}
+
+		public void setMatricula(String matricula) {
+			this.matricula = matricula;
+		}
+
+		public String getNombre() {
+			return nombre;
+		}
+
+		public void setNombre(String nombre) {
+			this.nombre = nombre;
+		}
+
+		public String getApellido() {
+			return apellido;
+		}
+
+		public void setApellido(String apellido) {
+			this.apellido = apellido;
+		}
+
+		public String getEspeciliadad() {
+			return especiliadad;
+		}
+
+		public void setEspeciliadad(String especiliadad) {
+			this.especiliadad = especiliadad;
+		}
 
 	}
 

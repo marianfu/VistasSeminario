@@ -8,17 +8,17 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<StackPane fx:id="vistaListadoPacientes" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane fx:id="vistaListadoPacientes" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="VistaListarOdontologosControlador">
  <children>
       <BorderPane>
          <center>
             <BorderPane style="-fx-background-color: white;" BorderPane.alignment="CENTER">
                <center>
-                  <TableView fx:id="tablaListarPacientes" fixedCellSize="0.0" BorderPane.alignment="CENTER">
+                  <TableView fx:id="tablaListarOdontologos" fixedCellSize="0.0" BorderPane.alignment="CENTER">
                     <columns>
+                        <TableColumn fx:id="columnaMatricula" prefWidth="75.0" text="Matrícula" />
                       <TableColumn fx:id="columnaNombre" prefWidth="75.0" text="Nombre" />
                       <TableColumn fx:id="columnaApellido" prefWidth="75.0" text="Apellido" />
-                        <TableColumn fx:id="columnaMatricula" prefWidth="75.0" text="Matrícula" />
                         <TableColumn fx:id="columnaEspecialidad" prefWidth="75.0" text="Especialidad" />
                     </columns>
                      <BorderPane.margin>
@@ -38,11 +38,11 @@
                         <HBox alignment="CENTER_LEFT" nodeOrientation="LEFT_TO_RIGHT" spacing="10.0">
                            <children>
                               <TextField fx:id="textFiltrarTabla" prefWidth="250.0" promptText="Ingrese un sólo dato personal" />
-                              <Button fx:id="botonBuscar" mnemonicParsing="false" text="Buscar">
+                              <Button fx:id="botonBuscar" mnemonicParsing="false" onAction="#filtrarTabla" text="Buscar">
                                  <font>
                                     <Font name="Calibri" size="14.0" />
                                  </font></Button>
-                              <Button fx:id="botonVerTodos" mnemonicParsing="false" text="Ver Todos">
+                              <Button fx:id="botonVerTodos" mnemonicParsing="false" onAction="#verTodos" text="Ver Todos">
                                  <font>
                                     <Font name="Calibri" size="14.0" />
                                  </font></Button>

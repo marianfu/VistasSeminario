@@ -1,37 +1,30 @@
 
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 
 //import org.controlsfx.control.PopOver;
 
 /**
- * Main controller class for the entire layout.
+ * Clase Principal que maneja la administración de las vistas.
  */
-public class ControladorPrincipal {
+public class VistaPrincipalControlador {
 
-	/** Holder of a switchable vista. */
+	/** Contenedor de la vista intercambiable. */
 	@FXML
 	private StackPane vistaHolder;
 	
 	/**
-	 * Replaces the vista displayed in the vista holder with a new vista.
-	 *
+	 * Reemplaza la vista actual por una nueva vista. 
 	 * @param node
-	 *            the vista node to be swapped in.
+	 *            el nodo vista para ser intercambiado.
 	 */
 	public void setVista(Node node) {
 		vistaHolder.getChildren().setAll(node);
 	}
+	
+	/* EVENT HANDLERS */
 
 	public void seleccionarPrincipal(ActionEvent event) {
 		VistaNavegador.loadVista(VistaNavegador.VISTA_1);
