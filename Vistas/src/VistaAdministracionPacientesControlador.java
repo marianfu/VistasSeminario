@@ -8,6 +8,7 @@ public class VistaAdministracionPacientesControlador implements Initializable{
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 
+		
 	}
 	
 	
