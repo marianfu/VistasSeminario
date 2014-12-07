@@ -43,7 +43,7 @@
                         <HBox alignment="CENTER_LEFT" nodeOrientation="LEFT_TO_RIGHT" spacing="10.0">
                            <children>
                               <TextField fx:id="textFiltrarTabla" prefWidth="250.0" promptText="Ingrese un sólo dato personal" />
-                              <Button fx:id="botonBuscar" onAction="#filtrarTabla" mnemonicParsing="false" text="Buscar">
+                              <Button fx:id="botonBuscar" mnemonicParsing="false" onAction="#filtrarTabla" text="Buscar">
                                  <font>
                                     <Font name="Calibri" size="14.0" />
                                  </font></Button>
@@ -92,7 +92,7 @@
          <top>
             <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="200.0" spacing="10.0" style="-fx-background-color: #3498db; -fx-background-radius: 4;" BorderPane.alignment="CENTER">
                <children>
-                  <ImageView fx:id="imagenRaya" fitHeight="20.0" fitWidth="20.0" pickOnBounds="FALSE" HBox.hgrow="NEVER">
+                  <ImageView fx:id="imagenRaya" fitHeight="25.0" fitWidth="25.0" pickOnBounds="FALSE" HBox.hgrow="NEVER">
                      <HBox.margin>
                         <Insets left="10.0" />
                      </HBox.margin>

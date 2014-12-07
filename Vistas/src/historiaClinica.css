@@ -39,6 +39,26 @@
 	-fx-background-color: #7f8c8d;
 }
 
+#botonAgregarObs{
+	
+	-fx-background-color: #e74c3c;
+}
+
+#botonAgregarObs:hover{
+	
+	-fx-background-color: #c0392b;
+}
+
+#box1 .button{
+	
+	-fx-background-color: #1abc9c;
+}
+
+#box1 .button:hover{
+	
+	-fx-background-color: #16a085;
+}
+
 
 #diente1{
 	-fx-background-image: url("Dientes/diente1.png");
