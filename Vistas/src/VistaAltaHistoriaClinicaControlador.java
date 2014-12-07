@@ -59,10 +59,10 @@ public class VistaAltaHistoriaClinicaControlador implements Initializable {
 		panelFichaPeriodontal.getStylesheets().setAll(
 				getClass().getResource("historiaClinica.css").toExternalForm());
 
-//		comboOdontologos.getItems().addAll("Odontologo 1");
-//		comboOdontologos.getItems().addAll("Odontologo 2");
-//		comboOdontologos.getItems().addAll("Odontologo 3");
-//		comboOdontologos.getItems().addAll("Odontologo 4");
+		comboOdontologos.getItems().addAll("Odontologo 1");
+		comboOdontologos.getItems().addAll("Odontologo 2");
+		comboOdontologos.getItems().addAll("Odontologo 3");
+		comboOdontologos.getItems().addAll("Odontologo 4");
 
 		comboOdontologos2.getItems().addAll("Odontologo 1");
 
