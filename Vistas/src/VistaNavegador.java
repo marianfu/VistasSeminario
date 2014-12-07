@@ -12,6 +12,7 @@ public class VistaNavegador {
     /**
      * Los fxml layouts manejados por el navegador.
      */
+	
     public static final String MAIN    = "FXML/main.fxml";
     public static final String VISTA_1 = "FXML/vistaInicio.fxml";
     public static final String VISTA_2 = "FXML/vista2.fxml";
