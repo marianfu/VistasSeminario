@@ -139,8 +139,8 @@ public class VistaAltaHistoriaClinicaControlador implements Initializable {
 	public void eliminarFila(ActionEvent event){
 		
 		
-		tablaObservaciones.getItems().clear();
-		tablaObservaciones.getItems().setAll(observaciones);
+//		tablaObservaciones.getItems().clear();
+//		tablaObservaciones.getItems().setAll(observaciones);
 		
 	}
 

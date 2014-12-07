@@ -22,7 +22,7 @@
                                  <children>
                                     <HBox alignment="CENTER_LEFT" nodeOrientation="LEFT_TO_RIGHT" spacing="10.0">
                                        <children>
-                                          <TextField fx:id="filtrarFicha" prefWidth="250.0" promptText="Ingrese el CODIGO de la historia clínica" />
+                                          <TextField fx:id="filtrarFicha" prefWidth="250.0" promptText="Ingrese el DNI  del paciente" />
                                           <Button fx:id="botonBuscar" mnemonicParsing="false" onAction="#buscarPaciente" text="Buscar Historia Clínica">
                                              <font>
                                                 <Font name="Calibri" size="14.0" />
